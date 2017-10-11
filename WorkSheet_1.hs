@@ -34,7 +34,7 @@ isEven x = divisibleBy x 2
 
 --Ex 9
 averageThree :: Int -> Int -> Int -> Float
-averageThree x y z = fromIntegral(x + y + z) / 3
+averageThree x y z = fromIntegral(sumThree x y z) / 3
 
 --Ex 10
 absolute :: Int -> Int
