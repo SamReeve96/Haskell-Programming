@@ -9,8 +9,8 @@ absolute x
 --Ex 2
 sign :: Int -> Int
 sign x
-    | x < 0 = 1
-    | x > 0 = (-1)
+    | x > 0 = 1
+    | x < 0 = (-1)
     | otherwise = 0
 
 --Ex 3
