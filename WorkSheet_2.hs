@@ -23,33 +23,39 @@ howManyEqual x y z
 --Ex 4
 sumDiagonalLengths :: Float -> Float -> Float -> Float
 sumDiagonalLengths a b c = diag a + diag b + diag c
-        where
-        diag x = sqrt(x^2 + x^2)
+    where
+    diag x = sqrt(x^2 + x^2)
 
 --Ex 5
 taxiFare :: Int -> Float
 taxiFare dist
-        | absolute(dist) <= 10 = (fare dist 0.50)
-        | otherwise = (fare (dist-10) 0.30) + 5.00
-        where
-        fare dist cost = cost * fromIntegral(dist) + 2.20
+    | absolute(dist) <= 10 = (fare dist 0.50)
+    | otherwise = (fare (dist-10) 0.30) + 5.00 --Add five for the base 10km journey
+    where
+    fare dist cost = cost * fromIntegral(dist) + 2.20
 
 --Ex 6
---howManyAboveAverage :: Int -> Int -> Int -> Int
---howManyAboveAverage x y z
---        | average(x y z) > x && average(x y z) > y && average(x y z) > z = 3
---        | average(x y z) > x && average(x y z) > y || average(x y z) > x && average(x y z) > z || average(x y z) > y && average(x y z) > z = 2
---        | otherwise = 1
---        where
---        average a b c = (a+b+c)/3
+howManyAboveAverage :: Int -> Int -> Int -> Int
+howManyAboveAverage x y z
+    | y > avg x y z && x > avg x y z = 2
+    | y > avg x y z && z > avg x y z = 2
+    | x > avg x y z && z > avg x y z = 2
+    | otherwise = 1
+    where
+    avg x y z = ((x+y+z) `quot` 3)
 
 --Ex 7
--- validDate :: Int -> Int -> Bool
--- validDate day month
---       | (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day <= 31 = true
---        | (month == 4 || month == 6 || month == 9 || month == 11) && day <= 30 = true
---        | month == 2 && day <= 28 = true
---        |otherwise = false
-   
+validDate :: Int -> Int -> Bool
+validDate d m
+    | m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12 && d > 0 && d <= 31 = True
+    | m == 4 || m == 6 || m == 9 || m == 11 && d > 0 && d <= 30  = True
+    | m == 2  && d > 0 && d <= 28  = True
+    | otherwise = False
 
 --Ex 8
+daysInMonth :: Int -> Int -> Int
+daysInMonth m y
+    | m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12 = 31
+    | m == 4 || m == 6 || m == 9 || m == 11 = 30
+    | y `mod` 4 == 0 && m == 2 = 29
+    | otherwise = 28 
