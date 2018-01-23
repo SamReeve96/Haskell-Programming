@@ -3,7 +3,7 @@
 -- We don't import '&&' from the prelude, so that we can 
 -- define our own version
 
-import Prelude hiding ((&&))
+import Prelude hiding ((&&), gcd)
 
 
 -- The following line declares the && operator (which we are about to
@@ -100,7 +100,7 @@ sumFromTo x y
     |y < x = 0
     |otherwise = y + sumFromTo x (y-1)
 
---Ex 9 How to hide gcd
+--Ex 9
 --gcd :: Int -> Int -> Int
 --gcd 
 
