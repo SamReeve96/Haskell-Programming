@@ -107,5 +107,5 @@ sumFromTo x y
 --Ex 10
 --intSquareRoot :: Int -> Int
 --intSquareRoot x 
---    |x < 0 = 0
+--   |x < 0 = 0
 --   |otherwise = x

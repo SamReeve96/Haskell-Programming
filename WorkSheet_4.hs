@@ -72,8 +72,8 @@ gradeStudents x = [ (n,grade(n,s)) | (n,s) <- x]
 --Ex 10 FIX
 --duplicate :: String -> Int -> String
 --duplicate x y
---    | y < 0 = x
---   |otherwise = x ++ duplicate(x y-1)
+--   | y < 0 = ""
+--   |otherwise = x : duplicate(x y-1)
 
 --Ex 11
 divisors :: Int -> [Int]
